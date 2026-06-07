@@ -367,7 +367,7 @@ export default function Home() {
                 </div>
 
                 {/* Stats row */}
-                <div className="rv rv2" style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:10, marginBottom:20 }}>
+                <div className="rv rv2 hero-stats-grid" style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:10, marginBottom:20 }}>
                   {[
                     { n:'5+',  l:'Live Apps',     c:'#58a6ff', icon:'🚀' },
                     { n:'3K+', l:'Users Reached', c:'#3fb950', icon:'👥' },
@@ -391,7 +391,7 @@ export default function Home() {
                   <div style={{ fontSize:11, fontFamily:'var(--mono)', color:'var(--text-3)', letterSpacing:'.1em', textTransform:'uppercase', marginBottom:10 }}>
                     // featured projects
                   </div>
-                  <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:10 }}>
+                  <div className="hero-proj-grid" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:10 }}>
                     {PROJECTS.slice(0,4).map(p => (
                       <a key={p.id} href={p.link} target="_blank" rel="noopener noreferrer"
                         className="repo-card" style={{ '--c1':p.c1, '--c2':p.c2, textDecoration:'none' } as React.CSSProperties}>
@@ -426,7 +426,7 @@ export default function Home() {
                 </div>
 
                 {/* CTA buttons */}
-                <div className="rv rv3" style={{ display:'flex', gap:10, flexWrap:'wrap', marginTop:16 }}>
+                <div className="rv rv3 hero-cta-row" style={{ display:'flex', gap:10, flexWrap:'wrap', marginTop:16 }}>
                   <button className="nav-btn nav-btn-primary" onClick={() => go('contact')} style={{ padding:'9px 20px', fontSize:13 }}>
                     Hire me for your project
                   </button>

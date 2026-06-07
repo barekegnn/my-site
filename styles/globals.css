@@ -651,24 +651,143 @@ footer{
 .divider{border:none;border-top:1px solid var(--border)}
 
 /* ── RESPONSIVE ──────────────────────────────────────── */
+
+/* ── Tablet (≤1024px) ── */
 @media(max-width:1024px){
-  .hero-grid{grid-template-columns:220px 1fr}
+  .hero-grid{grid-template-columns:200px 1fr;gap:24px}
+  .hero-avatar{width:180px;height:180px}
   .exp-grid{grid-template-columns:1fr 1fr}
   .about-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
   .contact-right{display:none}
+  .contrib-grid{overflow-x:auto}
 }
+
+/* ── Mobile (≤768px) ── */
 @media(max-width:768px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-left{display:flex;flex-direction:column;align-items:center;text-align:center}
-  .hero-avatar{width:120px;height:120px;margin-bottom:12px}
-  .avatar-initials{font-size:36px}
-  .hero-socials{justify-content:center}
-  .pinned-grid{grid-template-columns:1fr}
-  .project-row{grid-template-columns:1fr}
-  .project-row.reverse{direction:ltr}
-  .exp-grid{grid-template-columns:1fr}
-  .nav-tabs,.nav-right .nav-btn:not(.nav-btn-primary){display:none}
-  .nav-burger{display:block}
-  .form-row{grid-template-columns:1fr}
+  :root{ --r-lg:10px }
+  html{ font-size:13px }
+
+  .wrap{ padding:0 16px }
+
+  /* Nav */
+  .nav-tabs{ display:none }
+  .nav-right .nav-btn:not(.nav-btn-primary){ display:none }
+  .nav-burger{ display:block }
+  .nav-logo{ margin-right:0 }
+
+  /* Hero */
+  #hero{ padding:24px 0 40px }
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+  .hero-left{
+    display:flex;flex-direction:column;align-items:center;
+    text-align:center;
+  }
+  .hero-avatar{
+    width:110px;height:110px;margin-bottom:12px;
+    box-shadow:0 0 0 3px var(--bg-2), 0 0 0 4px var(--border);
+  }
+  .hero-name{ font-size:20px }
+  .hero-status{ font-size:11px;padding:6px 10px }
+  .hero-bio-left{ font-size:13px;max-width:320px }
+  .hero-meta{ align-items:center }
+  .hero-meta-row{ font-size:12px }
+  .hero-socials{ justify-content:center }
+
+  /* Hero right */
+  .contrib-grid{ overflow-x:auto;padding-bottom:4px }
+  .contrib-cell{ width:9px;height:9px }
+
+  /* Stats grid — 2×2 on mobile */
+  .hero-stats-grid{ grid-template-columns:1fr 1fr !important }
+
+  /* Featured projects mini-grid — single col on mobile */
+  .hero-proj-grid{ grid-template-columns:1fr !important }
+
+  /* CTA buttons — stack */
+  .hero-cta-row{
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:8px !important;
+  }
+  .hero-cta-row .nav-btn{
+    justify-content:center;
+    width:100%;
+    padding:11px 20px !important;
+    font-size:13px !important;
+  }
+
+  /* Projects */
+  #work{ padding:32px 0 }
+  .project-row{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+  /* screenshot on top, info below — always same order on mobile */
+  .project-row.reverse{ direction:ltr }
+  .proj-shots{
+    aspect-ratio:16/9;
+    border-radius:var(--r-lg) var(--r-lg) 0 0;
+    border-bottom:none;
+  }
+  .proj-info{
+    border-radius:0 0 var(--r-lg) var(--r-lg);
+    border-top:none;
+    padding:16px;
+  }
+  .proj-title{ font-size:17px }
+  .proj-desc{ font-size:12px }
+  .proj-actions{ flex-wrap:wrap }
+  .proj-link{ font-size:11px;padding:5px 10px }
+
+  /* Expertise */
+  #expertise{ padding:32px 0 }
+  .exp-grid{ grid-template-columns:1fr }
+  .exp-card{ padding:16px 18px }
+
+  /* About */
+  #about{ padding:32px 0 }
+  .readme-body{ padding:16px 18px }
+  .readme-h1{ font-size:18px }
+  .readme-code pre{ font-size:11px }
+  .about-sidebar{ display:none }/* hide sidebar on mobile — content in readme is enough */
+
+  /* Contact */
+  #contact{ padding:32px 0 48px }
+  .contact-heading{ font-size:22px }
+  .form-row{ grid-template-columns:1fr }
+  .form-input,.form-ta{ font-size:14px;padding:10px 12px }
+
+  /* Footer */
+  .footer-inner{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:12px;
+  }
+  .footer-links{ gap:16px }
+
+  /* Section headers */
+  .sec-header{ margin-bottom:20px }
+
+  /* Pinned grid */
+  .pinned-grid{ grid-template-columns:1fr }
+
+  /* Divider spacing */
+  .divider{ margin:0 }
+
+  /* Toast */
+  .toast{ left:16px;right:16px;bottom:16px }
+}
+
+/* ── Small mobile (≤400px) ── */
+@media(max-width:400px){
+  .hero-avatar{ width:90px;height:90px }
+  .hero-name{ font-size:18px }
+  .contrib-cell{ width:7px;height:7px }
+  .proj-title{ font-size:15px }
+  .readme-body{ padding:14px }
 }
