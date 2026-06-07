@@ -287,7 +287,7 @@ export default function Home() {
 
                 <div className="hero-status">
                   <span className="status-dot" />
-                  Available for freelance & remote work
+                  Available for freelance &amp; remote work
                 </div>
 
                 <p className="hero-bio-left">Full-stack developer building production-grade applications that solve real problems.</p>
@@ -323,11 +323,11 @@ export default function Home() {
               <div className="hero-right">
 
                 {/* Intro headline */}
-                <div className="rv" style={{ marginBottom:28 }}>
-                  <div style={{ fontSize:11, fontFamily:'var(--mono)', color:'var(--text-3)', letterSpacing:'.12em', textTransform:'uppercase', marginBottom:10 }}>
+                <div className="rv hero-intro">
+                  <div className="hero-comment">
                     // full-stack engineer · available for remote work
                   </div>
-                  <h1 style={{ fontSize:'clamp(28px,3.5vw,42px)', fontWeight:700, color:'var(--text-1)', letterSpacing:'-.03em', lineHeight:1.15, marginBottom:12 }}>
+                  <h1 style={{ fontSize:'clamp(26px,5vw,42px)', fontWeight:700, color:'var(--text-1)', letterSpacing:'-.03em', lineHeight:1.15, marginBottom:12 }}>
                     I build things that<br />
                     <span style={{ background:'linear-gradient(90deg,#58a6ff,#bc8cff)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>
                       actually ship.
@@ -343,8 +343,8 @@ export default function Home() {
 
                 {/* Contribution graph */}
                 <div className="contrib-graph rv rv1">
-                  <div className="contrib-header">
-                    <span>530 contributions in the last year &middot; 385 in 2026</span>
+                  <div className="contrib-header-wrap">
+                    <span style={{ fontSize:13, color:'var(--text-2)' }}>530 contributions in the last year &middot; 385 in 2026</span>
                     <a href="https://github.com/barekegnn" target="_blank" rel="noopener noreferrer"
                       style={{ color:'var(--text-3)', fontSize:11, fontFamily:'var(--mono)', textDecoration:'none' }}>
                       github.com/barekegnn
@@ -367,41 +367,33 @@ export default function Home() {
                 </div>
 
                 {/* Stats row */}
-                <div className="rv rv2 hero-stats-grid" style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:10, marginBottom:20 }}>
+                <div className="rv rv2 stats-grid">
                   {[
                     { n:'5+',  l:'Live Apps',     c:'#58a6ff', icon:'🚀' },
                     { n:'3K+', l:'Users Reached', c:'#3fb950', icon:'👥' },
                     { n:'35',  l:'Repos',         c:'#d29922', icon:'📦' },
                     { n:'100', l:'GitHub Stars',  c:'#bc8cff', icon:'⭐' },
                   ].map(s => (
-                    <div key={s.l} style={{
-                      background:'var(--bg-2)', border:'1px solid var(--border)',
-                      borderRadius:'var(--r-lg)', padding:'14px 12px', textAlign:'center',
-                      transition:'border-color .2s,transform .2s', cursor:'default',
-                    }}>
-                      <div style={{ fontSize:18, marginBottom:4 }}>{s.icon}</div>
-                      <div style={{ fontSize:20, fontWeight:700, color:s.c, fontFamily:'var(--mono)', lineHeight:1 }}>{s.n}</div>
-                      <div style={{ fontSize:10, color:'var(--text-3)', marginTop:4, letterSpacing:'.06em', textTransform:'uppercase' }}>{s.l}</div>
+                    <div key={s.l} className="stat-box">
+                      <div className="stat-icon">{s.icon}</div>
+                      <div className="stat-num" style={{ color: s.c }}>{s.n}</div>
+                      <div className="stat-lbl">{s.l}</div>
                     </div>
                   ))}
                 </div>
 
                 {/* Featured projects mini-grid */}
-                <div className="rv rv2">
-                  <div style={{ fontSize:11, fontFamily:'var(--mono)', color:'var(--text-3)', letterSpacing:'.1em', textTransform:'uppercase', marginBottom:10 }}>
+                <div className="rv rv2 featured-section">
+                  <div className="featured-label">
                     // featured projects
                   </div>
-                  <div className="hero-proj-grid" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:10 }}>
+                  <div className="featured-grid">
                     {PROJECTS.slice(0,4).map(p => (
                       <a key={p.id} href={p.link} target="_blank" rel="noopener noreferrer"
                         className="repo-card" style={{ '--c1':p.c1, '--c2':p.c2, textDecoration:'none' } as React.CSSProperties}>
-                        <div style={{
-                          height:52, borderRadius:4, overflow:'hidden', marginBottom:8,
-                          position:'relative', border:'1px solid var(--border)',
-                        }}>
-                          <img src={p.images[0]} alt={p.name}
-                            style={{ width:'100%', height:'100%', objectFit:'cover', opacity:.65 }} />
-                          <div style={{ position:'absolute', inset:0, background:`linear-gradient(135deg,${p.c1}44,transparent)` }} />
+                        <div className="proj-thumb">
+                          <img src={p.images[0]} alt={p.name} />
+                          <div className="proj-thumb-overlay" style={{ background:`linear-gradient(135deg,${p.c1}44,transparent)` }} />
                         </div>
                         <div className="repo-name" style={{ color:p.accent, marginBottom:4 }}>
                           <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5Z"/></svg>
@@ -417,7 +409,7 @@ export default function Home() {
                       </a>
                     ))}
                   </div>
-                  <div style={{ marginTop:10, textAlign:'right' }}>
+                  <div className="featured-more">
                     <button onClick={() => go('work')}
                       style={{ background:'none', border:'none', cursor:'pointer', fontFamily:'var(--mono)', fontSize:12, color:'var(--accent)' }}>
                       View all 5 projects →
@@ -426,14 +418,14 @@ export default function Home() {
                 </div>
 
                 {/* CTA buttons */}
-                <div className="rv rv3 hero-cta-row" style={{ display:'flex', gap:10, flexWrap:'wrap', marginTop:16 }}>
-                  <button className="nav-btn nav-btn-primary" onClick={() => go('contact')} style={{ padding:'9px 20px', fontSize:13 }}>
+                <div className="rv rv3 cta-row">
+                  <button className="nav-btn nav-btn-primary" onClick={() => go('contact')}>
                     Hire me for your project
                   </button>
-                  <button className="nav-btn" onClick={() => go('work')} style={{ padding:'9px 20px', fontSize:13 }}>
+                  <button className="nav-btn" onClick={() => go('work')}>
                     View my work
                   </button>
-                  <a href="/Barekegn Asefa Professional CV Resume (1).pdf" download className="nav-btn" style={{ padding:'9px 20px', fontSize:13 }}>
+                  <a href="/Barekegn Asefa Professional CV Resume (1).pdf" download className="nav-btn">
                     Download CV
                   </a>
                 </div>
@@ -463,7 +455,7 @@ export default function Home() {
               const cur = imgIdx[p.id] ?? 0
               const isEven = i % 2 === 0
               return (
-                <div key={p.id} className={`project-row rv${!isEven ? ' reverse' : ''}`} style={{ marginBottom: 16 }}>
+                <div key={p.id} className={`project-row rv${!isEven ? ' reverse' : ''}`}>
                   {/* Screenshot panel */}
                   <div className="proj-shots">
                     <div className="proj-bg" style={{
@@ -574,7 +566,7 @@ export default function Home() {
                   <div className="exp-card-icon">⚡</div>
                   <div>
                     <div className="exp-card-title">Tech Stack</div>
-                    <div className="exp-card-sub">tools & frameworks</div>
+                    <div className="exp-card-sub">tools &amp; frameworks</div>
                   </div>
                 </div>
                 <div className="tech-pills">
@@ -694,16 +686,16 @@ export default function Home() {
                   </div>
 
                   <div className="readme-h2">⚡ Career</div>
-                  <div style={{ display:'flex',flexDirection:'column',gap:0 }}>
+                  <div className="career-list">
                     {[
                       { role:'Full-Stack MERN Developer', co:'Freelance / Remote', years:'2023 — Present', dot:'#3fb950' },
                       { role:'Web Developer & Consultant', co:'Ethiopian Market', years:'2022 — 2023', dot:'#d29922' },
                       { role:'Self-Taught Journey', co:'Learning & Building', years:'2021 — 2022', dot:'var(--bg-4)' },
                     ].map((t, i) => (
-                      <div key={i} style={{ display:'flex',gap:16,padding:'12px 0',borderBottom: i < 2 ? '1px solid var(--border)' : 'none' }}>
-                        <div style={{ display:'flex',flexDirection:'column',alignItems:'center',gap:4,paddingTop:3 }}>
+                      <div key={i} className="career-item">
+                        <div className="career-dot-col">
                           <div style={{ width:10,height:10,borderRadius:'50%',background:t.dot,border:'2px solid var(--bg)',boxShadow:`0 0 6px ${t.dot}`,flexShrink:0 }} />
-                          {i < 2 && <div style={{ width:1,height:32,background:'var(--border)' }} />}
+                          {i < 2 && <div className="career-line" />}
                         </div>
                         <div>
                           <div style={{ fontSize:13,fontWeight:600,color:'var(--text-1)' }}>{t.role}</div>
