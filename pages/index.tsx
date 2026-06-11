@@ -182,6 +182,9 @@ export default function Home() {
       <div className={`m-menu${menu ? ' open' : ''}`}>
         <button className="m-menu-close" onClick={() => setMenu(false)}>✕</button>
         {NAV.map(s => <button key={s} className="m-tab" onClick={() => go(s)}>{s === 'hero' ? 'Home' : s.charAt(0).toUpperCase() + s.slice(1)}</button>)}
+        <a href="/Barekegn Asefa Professional CV Resume.pdf" download className="m-tab m-tab-cv" onClick={() => setMenu(false)}>
+          ↓ Download CV
+        </a>
       </div>
 
       {/* Nav */}
@@ -196,7 +199,7 @@ export default function Home() {
             ))}
           </div>
           <div className="nav-right">
-            <a href="/Barekegn Asefa Professional CV Resume (1).pdf" download className="nav-btn">
+            <a href="/Barekegn Asefa Professional CV Resume.pdf" download className="nav-btn">
               <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M7.47 10.78a.75.75 0 0 0 1.06 0l3.75-3.75a.75.75 0 0 0-1.06-1.06L8.75 8.44V1.75a.75.75 0 0 0-1.5 0v6.69L4.78 5.97a.75.75 0 0 0-1.06 1.06l3.75 3.75ZM3.75 13a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z"/></svg>
               CV
             </a>
@@ -335,7 +338,7 @@ export default function Home() {
                 <div className="cta-row rv rv3">
                   <button className="nav-btn nav-btn-primary" onClick={() => go('contact')}>Hire me for your project</button>
                   <button className="nav-btn" onClick={() => go('work')}>View my work</button>
-                  <a href="/Barekegn Asefa Professional CV Resume (1).pdf" download className="nav-btn">Download CV</a>
+                  <a href="/Barekegn Asefa Professional CV Resume.pdf" download className="nav-btn">Download CV</a>
                 </div>
               </div>
             </div>
